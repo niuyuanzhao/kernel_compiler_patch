@@ -165,7 +165,7 @@ index 753b8763abae..7a59fc368b02 100644
 
  config MK6
  	bool "K6/K6-II/K6-III"
-@@ -245,6 +260,435 @@ config MATOM
+@@ -245,6 +260,421 @@ config MATOM
 
  endchoice
 
@@ -182,20 +182,6 @@ index 753b8763abae..7a59fc368b02 100644
 +choice
 +	prompt "x86_64 Compiler Build Optimization"
 +	default GENERIC_CPU
-+
-+config X86_NATIVE_CPU
-+	bool "Build and optimize for local/native CPU"
-+	depends on X86_64
-+	depends on CC_HAS_MARCH_NATIVE
-+	help
-+	  Optimize for the current CPU used to compile the kernel.
-+	  Use this option if you intend to build the kernel for your
-+	  local machine.
-+
-+	  Note that such a kernel might not work optimally on a
-+	  different x86 machine.
-+
-+	  If unsure, say N.
 +
 +config GENERIC_CPU
 +	bool "Generic-x86-64"
