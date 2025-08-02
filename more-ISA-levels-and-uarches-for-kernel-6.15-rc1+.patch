@@ -657,7 +657,7 @@ diff --git a/arch/x86/Makefile b/arch/x86/Makefile
 index 594723005d95..7b4eca23c414 100644
 --- a/arch/x86/Makefile
 +++ b/arch/x86/Makefile
-@@ -173,8 +173,230 @@ else
+@@ -173,13 +173,230 @@ else
  	# Use -mskip-rax-setup if supported.
  	KBUILD_CFLAGS += $(call cc-option,-mskip-rax-setup)
 
@@ -878,8 +878,13 @@ index 594723005d95..7b4eca23c414 100644
 +
 +ifdef CONFIG_GENERIC_CPU
 +ifeq ($(CONFIG_X86_64_VERSION),1)
+-ifdef CONFIG_X86_NATIVE_CPU
+-        KBUILD_CFLAGS += -march=native
+-        KBUILD_RUSTFLAGS += -Ctarget-cpu=native
+-else
          KBUILD_CFLAGS += -march=x86-64 -mtune=generic
          KBUILD_RUSTFLAGS += -Ctarget-cpu=x86-64 -Ztune-cpu=generic
+-endif
 +else
 +        KBUILD_CFLAGS +=-march=x86-64-v$(CONFIG_X86_64_VERSION)
 +        KBUILD_RUSTFLAGS += -Ctarget-cpu=x86-64-v$(CONFIG_X86_64_VERSION)
